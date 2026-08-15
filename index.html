@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Craig 的个人英语单词本：从日常生活里收集表达，在真实场景里记住它们。" />
+    <meta name="theme-color" content="#f5efe3" />
+    <title>Words, Lately · 我的英语单词本</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到顶部">
+        <span class="brand-mark">W</span>
+        <span>Words, Lately</span>
+      </a>
+      <button class="study-button" id="start-study" type="button">
+        <span aria-hidden="true">▶</span> 开始复习
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">MY LIVING VOCABULARY</p>
+          <h1 id="page-title">把遇见的词，<br /><em>留在生活里。</em></h1>
+          <p class="hero-intro">不背孤零零的释义。这里收集每个词出现的场景、自然例句，还有真正需要记住的细微差别。</p>
+        </div>
+        <div class="hero-note" aria-label="学习提示">
+          <span class="tape" aria-hidden="true"></span>
+          <p class="note-label">TODAY'S NOTE</p>
+          <p>“A word is remembered<br />when it has somewhere<br />to live.”</p>
+          <span class="note-squiggle" aria-hidden="true">⌁⌁⌁</span>
+        </div>
+      </section>
+
+      <section class="stats" aria-label="学习统计">
+        <div><strong id="total-count">—</strong><span>收录词汇</span></div>
+        <div><strong id="mastered-count">0</strong><span>已经掌握</span></div>
+        <div><strong id="review-count">—</strong><span>等待复习</span></div>
+      </section>
+
+      <section class="collection" aria-labelledby="collection-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE COLLECTION</p>
+            <h2 id="collection-title">最近学到的词</h2>
+          </div>
+          <label class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <span class="sr-only">搜索单词、含义或场景</span>
+            <input id="search" type="search" placeholder="搜索单词、含义或场景…" autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="filters" role="group" aria-label="筛选词汇">
+          <button class="filter active" type="button" data-filter="all">全部</button>
+          <button class="filter" type="button" data-filter="review">待复习</button>
+          <button class="filter" type="button" data-filter="mastered">已掌握</button>
+        </div>
+
+        <div class="word-grid" id="word-grid" aria-live="polite"></div>
+        <p class="empty-state" id="empty-state" hidden>没有找到相符的单词，换个关键词试试。</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built from everyday moments · 持续生长的个人单词本</p>
+      <a href="英语单词本.md">查看 Markdown 原文 ↗</a>
+    </footer>
+
+    <dialog class="study-dialog" id="study-dialog">
+      <div class="study-shell">
+        <div class="study-topbar">
+          <span id="study-progress">1 / 5</span>
+          <button class="icon-button" id="close-study" type="button" aria-label="关闭复习">×</button>
+        </div>
+        <div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div>
+        <div class="flashcard" id="flashcard">
+          <p class="eyebrow">DO YOU REMEMBER?</p>
+          <h2 id="study-word">word</h2>
+          <button class="sound-button" id="speak-study" type="button" aria-label="朗读当前单词">♪ 听发音</button>
+          <div class="study-answer" id="study-answer" hidden>
+            <p class="study-meaning" id="study-meaning"></p>
+            <p class="study-example" id="study-example"></p>
+            <p class="study-translation" id="study-translation"></p>
+          </div>
+        </div>
+        <button class="reveal-button" id="reveal-answer" type="button">显示答案</button>
+        <div class="study-actions" id="study-actions" hidden>
+          <button class="again-button" id="study-again" type="button">还要复习</button>
+          <button class="know-button" id="study-know" type="button">我记住了</button>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>
